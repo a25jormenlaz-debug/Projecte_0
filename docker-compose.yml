@@ -1,0 +1,14 @@
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql-quiz
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: quiz
+    ports:
+      - "3306:3306"
+    volumes:
+      - dades-mysql:/var/lib/mysql
+
+volumes:
+  dades-mysql:

@@ -1,5 +1,5 @@
-let totesLesPreguntes = [];
 let preguntesPartida = [];
+let sessionId = null;
 let intervalTemps = null;
 
 let estatDeLaPartida = {
@@ -8,13 +8,7 @@ let estatDeLaPartida = {
   temps: 0
 };
 
-fetch('data.json')
-  .then(response => response.json())
-  .then(data => {
-    console.log("Dades carregades:", data);
-    totesLesPreguntes = data.preguntes;
-    comprovarUsuari();
-  });
+comprovarUsuari();
 
 // Formulari del nom
 document.getElementById("formNom").addEventListener("submit", function (event) {
@@ -40,6 +34,28 @@ document.getElementById("partida").addEventListener("click", function (event) {
   }
 });
 
+// Botó "Enviar resultats": envia les respostes al servidor
+document.getElementById("btnEnviar").addEventListener("click", function () {
+  fetch('/finalitza', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      sessionId: sessionId,
+      respostes: estatDeLaPartida.respostesUsuari
+    })
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.error) {
+        document.getElementById("partida").innerHTML = `<p>Error: ${data.error}</p>`;
+        return;
+      }
+            document.getElementById("partida").innerHTML =
+        `<p class="alert alert-success fs-5 mb-0">Has encertat ${data.correctes} de ${data.total} preguntes en ${estatDeLaPartida.temps} segons.</p>`;
+      document.getElementById("btnEnviar").classList.add("hidden");
+    });
+});
+
 function comprovarUsuari() {
   const nom = localStorage.getItem("nom");
   if (nom) {
@@ -54,7 +70,7 @@ function mostrarSalutacio(nom) {
   document.getElementById("salutacio").classList.remove("hidden");
   document.getElementById("joc").classList.remove("hidden");
   document.getElementById("textSalutacio").textContent = `Hola, ${nom}!`;
-  iniciarPartida(totesLesPreguntes);
+  iniciarPartida();
 }
 
 function mostrarFormulari() {
@@ -65,16 +81,28 @@ function mostrarFormulari() {
   document.getElementById("inputNom").value = "";
 }
 
-function iniciarPartida(preguntes) {
-  preguntesPartida = preguntes;
-  estatDeLaPartida.contadorPreguntes = 0;
-  estatDeLaPartida.respostesUsuari = [];
-  estatDeLaPartida.temps = 0;
-  document.getElementById("btnEnviar").classList.add("hidden");
-  renderitzarMarcador();
-  renderitzarTemps();
-  iniciarTemporitzador();
-  mostrarPregunta();
+function iniciarPartida() {
+  fetch('/getPreguntes?num=10')
+    .then(response => response.json())
+    .then(data => {
+      if (data.error) {
+        document.getElementById("partida").innerHTML = `<p>Error: ${data.error}</p>`;
+        return;
+      }
+
+      sessionId = data.sessionId;
+      preguntesPartida = data.questions;
+
+      estatDeLaPartida.contadorPreguntes = 0;
+      estatDeLaPartida.respostesUsuari = [];
+      estatDeLaPartida.temps = 0;
+
+      document.getElementById("btnEnviar").classList.add("hidden");
+      renderitzarMarcador();
+      renderitzarTemps();
+      iniciarTemporitzador();
+      mostrarPregunta();
+    });
 }
 
 function iniciarTemporitzador() {
@@ -90,13 +118,13 @@ function mostrarPregunta() {
   const divPartida = document.getElementById("partida");
 
   let html = `
-    <h2>${pregunta.pregunta}</h2>
-    <img src="${pregunta.imatge}" alt="Bandera" width="200">
-    <div>
+    <h2 class="h4 mb-3">${pregunta.question}</h2>
+    <img src="${pregunta.image}" alt="Bandera" class="img-fluid mb-3 border" style="max-height: 150px;">
+    <div class="d-grid gap-2">
   `;
 
-  for (let i = 0; i < pregunta.respostes.length; i++) {
-    html += `<button class="boto-resposta" data-index="${i}">${pregunta.respostes[i].resposta}</button>`;
+  for (let i = 0; i < pregunta.answers.length; i++) {
+    html += `<button class="btn btn-outline-primary boto-resposta" data-index="${i}">${pregunta.answers[i]}</button>`;
   }
 
   html += `</div>`;
@@ -112,8 +140,8 @@ function respondre(indexResposta) {
     mostrarPregunta();
   } else {
     clearInterval(intervalTemps);
-    document.getElementById("partida").innerHTML =
-      `<p>Has respost totes les preguntes en ${estatDeLaPartida.temps} segons!</p>`;
+        document.getElementById("partida").innerHTML =
+      `<p class="fs-5 mb-0">Has respost totes les preguntes en ${estatDeLaPartida.temps} segons!</p>`;
     document.getElementById("btnEnviar").classList.remove("hidden");
   }
 }
