@@ -1,0 +1,26 @@
+{
+  "name": "projecte_0",
+  "version": "1.0.0",
+  "description": "Projecte 0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a25jormenlaz-debug/Projecte_0.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/a25jormenlaz-debug/Projecte_0/issues"
+  },
+  "homepage": "https://github.com/a25jormenlaz-debug/Projecte_0#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "uuid": "^14.0.2"
+  }
+}

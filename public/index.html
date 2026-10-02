@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <title>Endevina la bandera</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Endevina la bandera</h1>
+
+  <form id="formNom" class="hidden">
+    <label for="inputNom">Com et dius?</label>
+    <input type="text" id="inputNom" required>
+    <button type="submit">Començar</button>
+  </form>
+
+  <div id="salutacio" class="hidden">
+    <span id="textSalutacio"></span>
+    <button id="btnEsborrar">Esborrar nom</button>
+  </div>
+
+  <div id="joc" class="hidden">
+    <div id="partida"></div>
+    <div id="marcador"></div>
+    <div id="temps"></div>
+    <button id="btnEnviar" class="hidden">Enviar resultats</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+[
+  {
+    "id": 1,
+    "question": "De quin país és aquesta bandera?",
+    "answers": ["Itàlia", "Mèxic", "Hongria", "Bulgària"],
+    "correctAnswer": 2,
+    "image": "https://flagcdn.com/w320/hu.png"
+  },
+  {
+    "id": 2,
+    "question": "De quin país és aquesta bandera?",
+    "answers": ["Japó", "Corea del Sud", "Bangladesh", "Palau"],
+    "correctAnswer": 0,
+    "image": "https://flagcdn.com/w320/jp.png"
+  },
+  {
+    "id": 3,
+    "question": "De quin país és aquesta bandera?",
+    "answers": ["Països Baixos", "Luxemburg", "França", "Rússia"],
+    "correctAnswer": 2,
+    "image": "https://flagcdn.com/w320/fr.png"
+  },
+  {
+    "id": 4,
+    "question": "De quin país és aquesta bandera?",
+    "answers": ["Brasil", "Jamaica", "Bolívia", "Nigèria"],
+    "correctAnswer": 0,
+    "image": "https://flagcdn.com/w320/br.png"
+  },
+  {
+    "id": 5,
+    "question": "De quin país és aquesta bandera?",
+    "answers": ["Grècia", "Argentina", "Israel", "Uruguai"],
+    "correctAnswer": 1,
+    "image": "https://flagcdn.com/w320/ar.png"
+  },
+  {
+    "id": 6,
+    "question": "De quin país és aquesta bandera?",
+    "answers": ["Canadà", "Estats Units", "Àustria", "Suïssa"],
+    "correctAnswer": 0,
+    "image": "https://flagcdn.com/w320/ca.png"
+  },
+  {
+    "id": 7,
+    "question": "De quin país és aquesta bandera?",
+    "answers": ["Sud-àfrica", "Kenya", "Etiòpia", "Egipte"],
+    "correctAnswer": 3,
+    "image": "https://flagcdn.com/w320/eg.png"
+  },
+  {
+    "id": 8,
+    "question": "De quin país és aquesta bandera?",
+    "answers": ["Xina", "Vietnam", "Turquia", "Marroc"],
+    "correctAnswer": 0,
+    "image": "https://flagcdn.com/w320/cn.png"
+  },
+  {
+    "id": 9,
+    "question": "De quin país és aquesta bandera?",
+    "answers": ["Regne Unit", "Austràlia", "Nova Zelanda", "Fiji"],
+    "correctAnswer": 0,
+    "image": "https://flagcdn.com/w320/gb.png"
+  },
+  {
+    "id": 10,
+    "question": "De quin país és aquesta bandera?",
+    "answers": ["Espanya", "Portugal", "Andorra", "Colòmbia"],
+    "correctAnswer": 0,
+    "image": "https://flagcdn.com/w320/es.png"
+  },
+  {
+    "id": 11,
+    "question": "De quin país és aquesta bandera?",
+    "answers": ["Bèlgica", "Alemanya", "Romania", "Estònia"],
+    "correctAnswer": 1,
+    "image": "https://flagcdn.com/w320/de.png"
+  },
+  {
+    "id": 12,
+    "question": "De quin país és aquesta bandera?",
+    "answers": ["Noruega", "Finlàndia", "Suècia", "Dinamarca"],
+    "correctAnswer": 2,
+    "image": "https://flagcdn.com/w320/se.png"
+  },
+  {
+    "id": 13,
+    "question": "De quin país és aquesta bandera?",
+    "answers": ["Portugal", "Marroc", "Bolívia", "Letònia"],
+    "correctAnswer": 0,
+    "image": "https://flagcdn.com/w320/pt.png"
+  },
+  {
+    "id": 14,
+    "question": "De quin país és aquesta bandera?",
+    "answers": ["Níger", "Costa d'Ivori", "Pakistan", "Índia"],
+    "correctAnswer": 3,
+    "image": "https://flagcdn.com/w320/in.png"
+  },
+  {
+    "id": 15,
+    "question": "De quin país és aquesta bandera?",
+    "answers": ["Itàlia", "Mèxic", "Irlanda", "Nigèria"],
+    "correctAnswer": 2,
+    "image": "https://flagcdn.com/w320/ie.png"
+  },
+  {
+    "id": 16,
+    "question": "De quin país és aquesta bandera?",
+    "answers": ["Islàndia", "Noruega", "Dinamarca", "Finlàndia"],
+    "correctAnswer": 1,
+    "image": "https://flagcdn.com/w320/no.png"
+  }
+]
